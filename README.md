@@ -69,5 +69,5 @@ docker network create localnet
 Ingresar al repositorio descargado, construir la imagen y levantar la app con docker-compose. Ejecutamos:
 ```
 cd repo
-docker-compose up --build api
+docker-compose up --build -d api
 ```
