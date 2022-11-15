@@ -16,7 +16,7 @@ from config.app import APP_TITLE, \
 app = Flask(__name__, instance_relative_config=False)
 # app.url_map.strict_slashes = False
 app.config.from_object('config.app')
-CORS(app, resources={r"/api/*": {"origins": ['http://168.232.165.173:3333', 'http://localhost:3333']}}, supports_credentials=True)
+CORS(app, resources={r"/api/*": {"origins": ['http://1.1.1.1:3333', 'http://localhost:3333']}}, supports_credentials=True)
 
 
 # 2: se inyectan los modulos mediante namespaces -> rutas y planos (colecciones de rutas para metodos http)
