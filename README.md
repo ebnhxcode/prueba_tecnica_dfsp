@@ -66,37 +66,8 @@ docker network create localnet
 
 ### Construcción de la imagen usando docker compose en un entorno de desarrollo local (Recomendado)
 
-Ingresar al repositorio descargado y construir la imagen con docker-compose. Ejecutamos:
+Ingresar al repositorio descargado, construir la imagen y levantar la app con docker-compose. Ejecutamos:
 ```
 cd repo
 docker-compose up --build api
-```
-
-Levantar aplicacion:
-Si la construcción de la imagen resultó correcta, ingresar al contenedor para levantar la aplicacion en modo debug con el alias configurado en el dockerfile de la aplicacion. Ejecutamos:
-```
-docker-compose exec -u0 api bash
-guniapp
-```
-
-### Construcción de la imagen usando docker build en un entorno de desarrollo local
-
-Construcción de la imagen. Ejecutamos:
-```
-cd repo
-docker build . -f Dockerfile -t prueba_tecnica_dfsp-api
-```
-
-Chequear el nombre del contenedor a levantar. Ejecutamos:
-```
-docker images
-```
-
-Una vez localizada la imagen, levantar contenedor. En mi caso ejecutamos:
-
-```
-docker run -d -it --env-file .env.dev -p 5555:5555 -v $(pwd)/main:/main prueba_tecnica_dfsp-api
-docker run -d -it --env-file .env.dev -p 5555:5555 --network localnet prueba_tecnica_dfsp-api 
-docker exec -it `docker ps -q --filter ancestor=prueba_tecnica_dfsp-api` bash
-guniapp
 ```
