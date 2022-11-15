@@ -1,0 +1,19 @@
+version: '3.6'
+
+services:
+  api:
+    container_name: api
+    volumes:
+      - ./main:/main
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    env_file:
+        - .env.dev
+    ports:
+      - "5555:5555"
+
+networks:
+    localnet:
+        external: true
